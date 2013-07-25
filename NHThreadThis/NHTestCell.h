@@ -1,5 +1,5 @@
 //
-//  NHViewController.h
+//  NHTestCell.h
 //  NHThreadThis
 //
 //  Created by Nicholas Hart on 7/24/13.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NHViewController : UICollectionViewController
+@interface NHTestCell : UICollectionViewCell
 
-@property (nonatomic, strong) NSString * testName;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end

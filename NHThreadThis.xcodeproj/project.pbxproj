@@ -23,6 +23,14 @@
 		54BF97E017A0D78D0024074C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BF97BB17A0D78D0024074C /* Foundation.framework */; };
 		54BF97E817A0D78D0024074C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54BF97E617A0D78D0024074C /* InfoPlist.strings */; };
 		54BF97EB17A0D78D0024074C /* NHThreadThisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF97EA17A0D78D0024074C /* NHThreadThisTests.m */; };
+		54BF97F917A0D80E0024074C /* NHGroupThese.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF97F617A0D80E0024074C /* NHGroupThese.m */; };
+		54BF97FA17A0D80E0024074C /* NHGroupThese.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF97F617A0D80E0024074C /* NHGroupThese.m */; };
+		54BF97FB17A0D80E0024074C /* NHThreadThis.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF97F817A0D80E0024074C /* NHThreadThis.m */; };
+		54BF97FC17A0D80E0024074C /* NHThreadThis.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF97F817A0D80E0024074C /* NHThreadThis.m */; };
+		54BF97FF17A0DB440024074C /* NHTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF97FE17A0DB440024074C /* NHTestCell.m */; };
+		54BF980017A0DB440024074C /* NHTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF97FE17A0DB440024074C /* NHTestCell.m */; };
+		54BF980317A0E30E0024074C /* NHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF980217A0E30E0024074C /* NHHomeViewController.m */; };
+		54BF980417A0E30E0024074C /* NHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BF980217A0E30E0024074C /* NHHomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +66,14 @@
 		54BF97E717A0D78D0024074C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		54BF97E917A0D78D0024074C /* NHThreadThisTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHThreadThisTests.h; sourceTree = "<group>"; };
 		54BF97EA17A0D78D0024074C /* NHThreadThisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NHThreadThisTests.m; sourceTree = "<group>"; };
+		54BF97F517A0D80E0024074C /* NHGroupThese.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHGroupThese.h; sourceTree = "<group>"; };
+		54BF97F617A0D80E0024074C /* NHGroupThese.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHGroupThese.m; sourceTree = "<group>"; };
+		54BF97F717A0D80E0024074C /* NHThreadThis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHThreadThis.h; sourceTree = "<group>"; };
+		54BF97F817A0D80E0024074C /* NHThreadThis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHThreadThis.m; sourceTree = "<group>"; };
+		54BF97FD17A0DB440024074C /* NHTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHTestCell.h; sourceTree = "<group>"; };
+		54BF97FE17A0DB440024074C /* NHTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHTestCell.m; sourceTree = "<group>"; };
+		54BF980117A0E30E0024074C /* NHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHHomeViewController.h; sourceTree = "<group>"; };
+		54BF980217A0E30E0024074C /* NHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NHHomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +103,7 @@
 		54BF97AD17A0D78C0024074C = {
 			isa = PBXGroup;
 			children = (
+				54BF97F417A0D7BE0024074C /* Classes */,
 				54BF97BF17A0D78D0024074C /* NHThreadThis */,
 				54BF97E317A0D78D0024074C /* NHThreadThisTests */,
 				54BF97B817A0D78D0024074C /* Frameworks */,
@@ -123,6 +140,10 @@
 				54BF97D417A0D78D0024074C /* NHViewController.h */,
 				54BF97D517A0D78D0024074C /* NHViewController.m */,
 				54BF97C017A0D78D0024074C /* Supporting Files */,
+				54BF97FD17A0DB440024074C /* NHTestCell.h */,
+				54BF97FE17A0DB440024074C /* NHTestCell.m */,
+				54BF980117A0E30E0024074C /* NHHomeViewController.h */,
+				54BF980217A0E30E0024074C /* NHHomeViewController.m */,
 			);
 			path = NHThreadThis;
 			sourceTree = "<group>";
@@ -158,6 +179,17 @@
 				54BF97E617A0D78D0024074C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54BF97F417A0D7BE0024074C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				54BF97F517A0D80E0024074C /* NHGroupThese.h */,
+				54BF97F617A0D80E0024074C /* NHGroupThese.m */,
+				54BF97F717A0D80E0024074C /* NHThreadThis.h */,
+				54BF97F817A0D80E0024074C /* NHThreadThis.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +306,10 @@
 				54BF97C617A0D78D0024074C /* main.m in Sources */,
 				54BF97CA17A0D78D0024074C /* NHAppDelegate.m in Sources */,
 				54BF97D617A0D78D0024074C /* NHViewController.m in Sources */,
+				54BF97F917A0D80E0024074C /* NHGroupThese.m in Sources */,
+				54BF97FB17A0D80E0024074C /* NHThreadThis.m in Sources */,
+				54BF97FF17A0DB440024074C /* NHTestCell.m in Sources */,
+				54BF980317A0E30E0024074C /* NHHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +318,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				54BF97EB17A0D78D0024074C /* NHThreadThisTests.m in Sources */,
+				54BF97FA17A0D80E0024074C /* NHGroupThese.m in Sources */,
+				54BF97FC17A0D80E0024074C /* NHThreadThis.m in Sources */,
+				54BF980017A0DB440024074C /* NHTestCell.m in Sources */,
+				54BF980417A0E30E0024074C /* NHHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
