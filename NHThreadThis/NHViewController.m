@@ -334,45 +334,12 @@
 }
 
 // the barrier is used for a multiple-reader, single-writer pattern.
+// XXXNH: the UI isn't behaving exactly the way I want right now--the UIAlertView on the main thread is not blocking.
 - (void)barrierTest {
     __weak NHViewController * weakSelf = self;
     NHThreadThis * mainThis = [NHThreadThis mainThis];
     __block NSUInteger index = 0;
-    [[[[[[[[[[[[[[[[[[[[NHThreadThis backgroundThisWithConcurrentQueueNamed:self.testName] doThis:^{
-        [self randomTask:index++ completion:^(NSUInteger result) {
-            [mainThis doThis:^{
-                [weakSelf taskCompleted:result];
-            }];
-        }];
-    }] doThis:^{
-        [self randomTask:index++ completion:^(NSUInteger result) {
-            [mainThis doThis:^{
-                [weakSelf taskCompleted:result];
-            }];
-        }];
-    }] doThis:^{
-        [self randomTask:index++ completion:^(NSUInteger result) {
-            [mainThis doThis:^{
-                [weakSelf taskCompleted:result];
-            }];
-        }];
-    }] doThis:^{
-        [self randomTask:index++ completion:^(NSUInteger result) {
-            [mainThis doThis:^{
-                [weakSelf taskCompleted:result];
-            }];
-        }];
-    }] doThis:^{
-        [self randomTask:index++ completion:^(NSUInteger result) {
-            [mainThis doThis:^{
-                [weakSelf taskCompleted:result];
-            }];
-        }];
-    }] doThisBarrier:^{
-        [mainThis doThisAndWait:^{
-            [weakSelf notifyBarrierTask];
-        }];
-    }] doThis:^{
+    [[[[[[[[[[[[[[[[[[[[[[[[NHThreadThis backgroundThisWithConcurrentQueueNamed:self.testName] doThis:^{
         [self randomTask:index++ completion:^(NSUInteger result) {
             [mainThis doThis:^{
                 [weakSelf taskCompleted:result];
@@ -411,6 +378,64 @@
     }] doThisBarrier:^{
         [mainThis doThisAndWait:^{
             [weakSelf notifyBarrierTask];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
+        }];
+    }] doThisBarrier:^{
+        [mainThis doThisAndWait:^{
+            [weakSelf notifyBarrierTask];
+        }];
+    }] doThis:^{
+        [self randomTask:index++ completion:^(NSUInteger result) {
+            [mainThis doThis:^{
+                [weakSelf taskCompleted:result];
+            }];
         }];
     }] doThis:^{
         [self randomTask:index++ completion:^(NSUInteger result) {
@@ -449,23 +474,26 @@
     }];
 }
 
-// XXXNH: this is currently broken...
 - (void)iterationTest {
     __weak NHViewController * weakSelf = self;
     NHThreadThis * mainThis = [NHThreadThis mainThis];
-    [[[NHThreadThis backgroundThisWithConcurrentQueueNamed:self.testName] doThis:^(size_t count){
-        [self randomTask:count completion:^(NSUInteger result) {
-            [mainThis doThis:^{
-                [weakSelf taskCompleted:result];
+    NHThreadThis * concurrentThis = [NHThreadThis backgroundThisWithConcurrentQueueNamed:self.testName];
+    [[NHThreadThis backgroundThis] doThis:^{
+        // we need to nest this inside another "doThis" because dispatch_apply() (ie: doThis:iterations:) waits until all invocations have completed.
+        [[concurrentThis doThis:^(size_t count){
+            [self randomTask:count completion:^(NSUInteger result) {
+                [mainThis doThis:^{
+                    [weakSelf taskCompleted:result];
+                }];
             }];
-        }];
-    } iterations:16] doThisBarrier:^{
-        [mainThis doThis:^{
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Iteration Test", @"Iteration Test alert title")
-                                        message:NSLocalizedString(@"All tasks complete!", @"Iteration Test alert message")
-                                       delegate:nil
-                              cancelButtonTitle:kDismissLabel
-                              otherButtonTitles:nil] show];
+        } iterations:20] doThisBarrier:^{
+            [mainThis doThis:^{
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Iteration Test", @"Iteration Test alert title")
+                                            message:NSLocalizedString(@"All tasks complete!", @"Iteration Test alert message")
+                                           delegate:nil
+                                  cancelButtonTitle:kDismissLabel
+                                  otherButtonTitles:nil] show];
+            }];
         }];
     }];
 }
