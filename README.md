@@ -6,6 +6,8 @@ This source code is offered to the public with no guarantees.
 It's mostly a set of helpers for my own use to cut down on some of the boilerplate code involved with using dispatch queues.
 If you find it useful or have suggestions, feel free to drop me a note!
 
+This source code is provided for free, licensed via the [MIT License][http://opensource.org/licenses/MIT]
+
 Examples
 ========
 
